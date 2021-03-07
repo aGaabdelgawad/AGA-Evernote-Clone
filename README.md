@@ -9,5 +9,7 @@ WPF Application as a cloning to Evernote application for creating notebooks and 
 * Explicit styles in Xaml.
 
 ### Note for usage
-#### For security purposes, you have to create your own api in both Microsoft Azure and Google Firebase:
-* Copy and paste the API Keys and the Connection string in the database files.
+#### For security purposes, you have to create your own accounts in both Microsoft Azure and Google Firebase:
+* Copy your Azure Connection String, Container Name and the Storage Blob Link and paste them in Database/AzureStorageHelper.cs.
+* Copy your Firebase database link and paste it in Database/DatabaseHelper.cs.
+* Copy your Firebase Authentication API Key and paste it in Database/FirebaseAuthHelper.cs.
