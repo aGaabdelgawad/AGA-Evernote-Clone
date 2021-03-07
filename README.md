@@ -5,7 +5,7 @@ WPF Application as a cloning to Evernote application for creating notebooks and 
 * Creating your account on the app.
 * Synchronizing notebooks and notes with the server.
 * Saving notes locally as a word document.
-* Converting audio to text "Speech Recognition".
+* Converting input audio to text "Speech Recognition".
 
 ### Code Features
 * MVVM pattern.
