@@ -878,8 +878,8 @@ namespace EvernoteClone.ViewModel
 
         public async void Speech()
         {
-            string region = "francecentral";
-            string key = "26f67db59a9b4e1d87c71e9f348b2e96";
+            string region = "Your_Region_Key";
+            string key = "Your_Azure_Speech_Recogintion_Key";
 
             var speechConfig = SpeechConfig.FromSubscription(key, region);
             using (var audioConfig = AudioConfig.FromDefaultMicrophoneInput())
