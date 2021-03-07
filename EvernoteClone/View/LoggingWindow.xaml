@@ -1,0 +1,105 @@
+﻿<!--
+    // This project copyrights is for Ahmed Gamal Abdel Gawad,
+    // LinkedIn: https://www.linkedin.com/in/aGaabdelgawad
+    // GitHub: https://github.com/aGaabdelgawad
+    // Youtube: https://www.youtube.com/AhmedGamalAbdelGawad
+    // Facebook: https://www.facebook.com/aGaabdelgawad
+-->
+<Window x:Class="EvernoteClone.View.LoggingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:vm="clr-namespace:EvernoteClone.ViewModel"
+        xmlns:cc="clr-namespace:EvernoteClone.View.CustomControls"
+        xmlns:local="clr-namespace:EvernoteClone.View"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="False"
+        mc:Ignorable="d"
+        Title="Login to Evernote" Height="360" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackPanel" x:Key="stackPanelStyle">
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="textBlockStyle">
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="{StaticResource primaryColor}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid DataContext="{Binding}">
+        <StackPanel Visibility="{Binding LogVis}"
+                    Style="{StaticResource stackPanelStyle}">
+            <TextBlock Text="Email:"/>
+            <TextBox Text="{Binding User.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Password:"/>
+            <PasswordBox cc:PasswordHelper.Attach="True"
+                         cc:PasswordHelper.Password="{Binding Text, ElementName=logPass, Mode=TwoWay}"/>
+            <TextBlock x:Name="logPass"
+                       Visibility="Collapsed"
+                       Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button IsDefault="True"
+                    Content="Login"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding User}"
+                    Background="{StaticResource submitColor}"
+                    Foreground="{StaticResource lightColor}"
+                    HorizontalAlignment="Center"
+                    Cursor="Hand"
+                    Width="280"
+                    Margin="0 5">
+            </Button>
+            <TextBlock Text="Don't have an Account? Register Now!"
+                       Style="{StaticResource textBlockStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding SwitchViewCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Visibility="{Binding RegVis}"
+                    Style="{StaticResource stackPanelStyle}">
+            <TextBlock Text="Name (Required):"/>
+            <TextBox Text="{Binding User.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Email (Required):"/>
+            <TextBox Text="{Binding User.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Password (Required):"/>
+            <PasswordBox cc:PasswordHelper.Attach="True"
+                         cc:PasswordHelper.Password="{Binding Text, ElementName=regPass, Mode=TwoWay}"/>
+            <TextBlock x:Name="regPass"
+                       Visibility="Collapsed"
+                       Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Confirm Password (Required):"/>
+            <PasswordBox cc:PasswordHelper.Attach="True"
+                         cc:PasswordHelper.Password="{Binding Text, ElementName=regConfirmPass, Mode=TwoWay}"/>
+            <TextBlock x:Name="regConfirmPass"
+                       Visibility="Collapsed"
+                       Text="{Binding User.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button IsDefault="True"
+                    Content="Register"
+                    Command="{Binding RegisterCommand}"
+                    CommandParameter="{Binding User}"
+                    Background="{StaticResource submitColor}"
+                    Foreground="{StaticResource lightColor}"
+                    HorizontalAlignment="Center"
+                    Cursor="Hand"
+                    Width="280"
+                    Margin="0 5"/>
+            <TextBlock Text="Already have an Account? Login Now!"
+                       Style="{StaticResource textBlockStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding SwitchViewCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

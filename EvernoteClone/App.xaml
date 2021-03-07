@@ -1,0 +1,29 @@
+﻿<!--
+    // This project copyrights is for Ahmed Gamal Abdel Gawad,
+    // LinkedIn: https://www.linkedin.com/in/aGaabdelgawad
+    // GitHub: https://github.com/aGaabdelgawad
+    // Youtube: https://www.youtube.com/AhmedGamalAbdelGawad
+    // Facebook: https://www.facebook.com/aGaabdelgawad
+-->
+    <Application x:Class="EvernoteClone.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EvernoteClone"
+             xmlns:ui="http://schemas.modernwpf.com/2019">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemeResources/>
+                <ui:XamlControlsResources />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Brushes-->
+            <SolidColorBrush x:Key="lightColor" Color="#FBFBFB"/>
+            <SolidColorBrush x:Key="darkColor" Color="#546E7A"/>
+            <SolidColorBrush x:Key="greenColor" Color="#00B74A"/>
+            <SolidColorBrush x:Key="submitColor" Color="#00B74A"/>
+            <SolidColorBrush x:Key="primaryColor" Color="#1266F1"/>
+            <SolidColorBrush x:Key="grayColor" Color="#dfdfdf"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

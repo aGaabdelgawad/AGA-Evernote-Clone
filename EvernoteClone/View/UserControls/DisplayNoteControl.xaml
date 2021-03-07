@@ -1,0 +1,56 @@
+﻿<!--
+    // This project copyrights is for Ahmed Gamal Abdel Gawad,
+    // LinkedIn: https://www.linkedin.com/in/aGaabdelgawad
+    // GitHub: https://github.com/aGaabdelgawad
+    // Youtube: https://www.youtube.com/AhmedGamalAbdelGawad
+    // Facebook: https://www.facebook.com/aGaabdelgawad
+-->
+<UserControl x:Class="EvernoteClone.View.UserControls.DisplayNoteControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EvernoteClone.View.UserControls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Image" x:Key="noteImage">
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Margin" Value="0 2 4 0"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="titleTextBlock">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource lightColor}"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="updatedAtTextBlock">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="{StaticResource grayColor}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0"
+               Grid.Column="0"
+               Source="../Images/note.png"
+               Style="{StaticResource noteImage}"/>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding Note.Title}"
+                   Style="{StaticResource titleTextBlock}"/>
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding Note.UpdatedAt,StringFormat=Modified {0}}"
+                   Style="{StaticResource updatedAtTextBlock}"/>
+    </Grid>
+</UserControl>
