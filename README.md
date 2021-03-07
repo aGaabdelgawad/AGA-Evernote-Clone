@@ -5,6 +5,7 @@ WPF Application as a cloning to Evernote application for creating notebooks and 
 * MVVM pattern.
 * No code-behind.
 * Code Readability
+* Responsive UI.
 * Explicit styles in Xaml.
 
 ### Note for usage
