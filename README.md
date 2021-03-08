@@ -1,5 +1,5 @@
 # AGA-Evernote-Clone
-WPF Application as a cloning to Evernote application for creating notebooks and notes.
+WPF Application as cloning to Evernote application for creating notebooks and notes.
 
 ### App Features
 * Creating your account on the app.
